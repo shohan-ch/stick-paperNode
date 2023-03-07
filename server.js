@@ -7,11 +7,13 @@ const handleRequest  = (req, res)=>{
 
 
     if(url=='/formSubmit' && req.method == "GET"){
-
-        res.end("Form data get method")
+      res.end("Form data get method")
      }
 
      if(url=='/formSubmit' && req.method == "POST"){
+
+
+        req.on('data')
 
         res.end("Form data")
      }
@@ -31,7 +33,7 @@ const handleRequest  = (req, res)=>{
         res.end()
     })
 
-    }
+}
 }
 
 http.createServer(handleRequest).listen(5000)
