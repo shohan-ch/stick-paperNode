@@ -1,6 +1,7 @@
 const http = require('http')
 const file =  require('fs')
 const name = require('./name')
+const {parse}  = require('querystring')
 
 const handleRequest  = (req, res)=>{
      const {url}  = req;
@@ -11,11 +12,15 @@ const handleRequest  = (req, res)=>{
      }
 
      if(url=='/formSubmit' && req.method == "POST"){
+        let body  =  "";
+        req.on('data', (data)=>{
+            body += data.toString();
+        })
+        req.on('end', ()=>{
+            const formData =  parse(body)
+            console.log(formData.email);
+        })
 
-
-        req.on('data')
-
-        res.end("Form data")
      }
 
      if(url=='/name'){
