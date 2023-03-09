@@ -1,6 +1,6 @@
 const http = require('http')
 const file =  require('fs')
-const name = require('./name')
+const {name, arrPerson} = require('./name')
 const {parse}  = require('querystring')
 
 const handleRequest  = (req, res)=>{
@@ -38,7 +38,8 @@ const handleRequest  = (req, res)=>{
      }
 
      if(url=='/name'){
-        const data  = JSON.stringify(name.name)
+        
+        const data  = JSON.stringify(arrPerson)
         res.end(data)
      }
 
