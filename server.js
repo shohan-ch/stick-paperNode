@@ -2,6 +2,8 @@ const http = require('http')
 const file =  require('fs')
 const {name, arrPerson} = require('./name')
 const {parse}  = require('querystring')
+const {routes}  = require('./routes/index')
+
 
 const handleRequest  = (req, res)=>{
      const {url}  = req;
@@ -19,7 +21,6 @@ const handleRequest  = (req, res)=>{
     })
 
 }
-
     if(url=='/formSubmit' && req.method == "GET"){
       res.end("Form data get method")
      }
@@ -42,9 +43,6 @@ const handleRequest  = (req, res)=>{
         const data  = JSON.stringify(arrPerson)
         res.end(data)
      }
-
-
-
 }
 
-http.createServer(handleRequest).listen(5000)
+http.createServer(routes).listen(5000)
