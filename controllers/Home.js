@@ -9,5 +9,7 @@ exports.article  = (id,req, res)=>{
     // const myUrl = new URL(req.url,'http://localhost:5000')
     // console.log(myUrl);
 
+    
+    
     res.end(`<h1>Article Pagefsd</h1>`)
 }
